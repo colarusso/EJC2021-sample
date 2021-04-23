@@ -30,7 +30,25 @@
   <script src="js_bin/Spot.js"></script>
 
 </HEAD>
-<BODY BGCOLOR="#ffffff" BACKGROUND="" MARGINWIDTH="0" MARGINHEIGHT="0">
+<BODY>
+
+  <nav class="main-nav">
+    <div class="main-nav__wrapper">
+      <div class="main-nav__leftCol">
+        <a href="/" alt="home" class="brand">
+          <img class="brand__image" src="images/scales.jpg" width="30px" align="left" border="0" alt="Scales of Justice"/>
+          <span class="brand__text">
+            Brand
+          </span>
+        </a>
+      </div>
+      <div class="main-nav__rightCol">
+        <p class="explainer-text">
+          For demonstration purposes only
+        </p>
+      </div>
+    </div>
+  </nav>
 
   <form id="thisForm" name="thisForm">
     <h1 class="form-title">
@@ -41,18 +59,18 @@
         <span class="subtitle"> Longer replies, a sentence or two, tend to get the best results.</span>
         <span id="word_count" name="word_count" class="subtitle" style="float:right;color:red;font-weight:bold;">&nbsp;&nbsp;<span id="result__words">0</span> words</span>
       </div>
-      <textarea name='text' id="text" style="width:100%;height:200px;font-size:15px;padding:5px;box-sizing: border-box;" placeholder="Share your story here"></textarea>
+      <textarea name='text' id="text" class="search-input-field" placeholder="Share your story here"></textarea>
       <div style="padding:5px 0 8px 0;">
-        <input id="save-id" name="save-id" type="checkbox"><span class="subtitle"><label for="save-id">Use my reply to help people facing similar issues. <a href="https://spot.suffolklitlab.org/data/user-driven/" target="_blank">Learn more</a></label></span>
+        <input id="save-id" name="save-id" type="checkbox"><span class="subtitle"><label for="save-id">Use my reply to help people facing similar issues. <a href="https://spot.suffolklitlab.org/data/user-driven/" target="_blank" style="color: rgba(0,0,0,0.8);">Learn more</a></label></span>
       </div>
       <input type="hidden" id="man_jur" name="man_jur"  value="MA">
-      <input type="button" style="width:100%;padding:5px;;" value="SEND" onCLick="make_query();"/>
+      <input type="button" class="search-input-button" value="Send" onCLick="make_query();"/>
 
       <div class="developer-notes">
-        <a href="javascript:void('');" onClick="$('#explanation').toggle()" class="menu">
+        <a href="javascript:void('');" onClick="$('#explanation').toggle()" class="menu menu-link">
           Show/Hide Developer Info
         </a>
-        <div id="explanation" style="display:none;" style="display:show;float:left;background:#eee;width:100%;margin:0px 0 20px 0;padding:0 15px;box-sizing: border-box;border: solid 1px #555;">
+        <div id="explanation" style="display:none;" class="explanation-wrapper">
           <p>
             This demonstration page is built on a beta of the <a href="https://spot.suffolklitlab.org/">Spot API</a>, a project bringing free AI-powered issue spotting to legal aids and non-profits. The issue spotter isn't perfect, but you can help improve it by playing <a href="https://learnedhands.law.stanford.edu/" target="_blank">Learned Hands</a>. This page is presented for demonstration purposes only. <span style="background:yellow;"><b>The results presented here should <i>NOT</i> be relied on in isolation. Spot is a work in progress</b></span>. To learn more about its coverage, read up on its <a href="https://spot.suffolklitlab.org/performance/">current performance</a>, or take it for a spin below.
           </p>
@@ -66,7 +84,6 @@
             <p>
               Normally a developer making use of Spot would preset cutoffs for the prediction and its upper and lower bounds, but here you can set them yourself to get a sense for how they work to filter results.
             </p>
-
             <div style="float:left;width:200px;margin:15px">
               Lower Bound Cutoff: <output id="lower_disp">?</output>
               <input type="range" id='cutoff-lower' name='cutoff-lower' min="0" max="1" value="0.5" step="0.01" onLoad="$('#lower_disp').val(this.value)" oninput="$('#lower_disp').val(this.value)" style="width:200px;">
@@ -83,14 +100,12 @@
             Currently, there are several live implementations of Spot which either focus on issues well covered by Spot or supplement Spot with additional context. You can see them here: <a href="https://courtformsonline.org/" target="_blank">Court Forms Online</a> (MA); <a href="https://masslrf.org/en/triage/info" target="_blank">Massachusetts Legal Resource Finder</a> (MA); <a href="https://ptla.org/find-legal-help" target="_blank">Pine Tree Legal Assistance Triage</a> (ME); and <a href="https://www.reddit.com/r/legaladvice/comments/jxbny2/ai_comes_to_la_ama_and_discussion_about_a_new_ai/" target="_blank">Reddit Eviction help bot</a> (national).
           </p>
           <p>
-            FWIW, the presumed context below is that you are someone looking to solve a potential legal issue in <b>Massachusetts</b>. <i>Remember, live integrations are, and should, supplement Spot's results with additional information, like traditional content search, or focus only on areas of high performance</i>. <a href="javascript:void('');" onClick="$('#text').val(sample[Math.floor(Math.random() * sample.length)]);$('#text').css('background-color', '');Countable.live(area, callback);">Seed reply below with sample text</a>.
+            FWIW, the presumed context below is that you are someone looking to solve a potential legal issue in <b>Massachusetts</b>. <i>Remember, live integrations are, and should, supplement Spot's results with additional information, like traditional content search, or focus only on areas of high performance</i>. <a href="javascript:void('');" onClick="$('#text').val(sample[Math.floor(Math.random() * sample.length)]);$('#text').css('background-color', '');Countable.live(area, callback);">Seed reply above with sample text</a>.
           <p>
         </div>
       </div>
     </div>
-
-
-    <div id="output" style="float:left;width:100%;">
+    <div id="output" class="search-output">
       <div id="loading" style="display:none;width:100%;margin:50px auto;text-align:center;">
         <img src="images/Ajax-loader.gif" width="35px;" height="35px;"/>
       </div>
@@ -99,9 +114,15 @@
     </div>
   </form>
 
-  <div class="footer" style="margin-bottom:100%">
-    <a href="/" alt="home"><img src="images/scales.png" width="50px" align="left" border="0" alt="Scales of Justice"/></a>
-    <font size=-1><a href="https://github.com/colarusso/EJC2021-sample" target="_blank">Original GitHub Repo</a> | <a href="https://suffolklitlab.org/spottest/" target="_blank">Inspired By</a></font>
+  <div class="footer">
+    <div class="footer__wrapper">
+      <a href="https://github.com/colarusso/EJC2021-sample" target="_blank" class="footer__link">
+        Original GitHub Repo
+      </a>
+      <a href="https://suffolklitlab.org/spottest/" target="_blank" class="footer__link">
+        Inspired By
+      </a>
+    </div>
   </div>
 
   <script>
