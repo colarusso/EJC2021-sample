@@ -21,7 +21,9 @@ function keyword(api_output) {
 
   if (!label_vals.find(a =>a.includes("CO")) && (
         api_output["text"].toLowerCase().includes("indigency") |
-        api_output["text"].toLowerCase().includes("indigent") 
+        api_output["text"].toLowerCase().includes("indigent") |
+        api_output["text"].toLowerCase().includes("attorney") |
+        api_output["text"].toLowerCase().includes("lawyer") 
       )) {
     api_output["labels"].push({id: "CO-00-00-00-00",name: "Courts and Lawyers",lower: 0,pred: 0.5,upper:1})
   }
