@@ -61,9 +61,8 @@
       </div>
       <textarea name='text' id="text" class="search-input-field" placeholder="Share your story here"></textarea>
       <div style="padding:5px 0 8px 0;">
-        <input id="save-id" name="save-id" type="checkbox"><span class="subtitle"><label for="save-id">Use my reply to help people facing similar issues. <a href="https://spot.suffolklitlab.org/data/user-driven/" target="_blank" style="color: rgba(0,0,0,0.8);">Learn more</a></label></span>
+        <input id="save-id" name="save-id" type="checkbox"><span class="subtitle"><label for="save-id"> Use my reply to help people facing similar issues. <a href="https://spot.suffolklitlab.org/data/user-driven/" target="_blank" style="color: rgba(0,0,0,0.8);">Learn more</a></label></span>
       </div>
-      <input type="hidden" id="man_jur" name="man_jur"  value="MA">
       <input type="button" class="search-input-button" value="Send" onCLick="make_query();"/>
 
       <div class="developer-notes">
@@ -74,42 +73,41 @@
           <p>
             This demonstration page is built on a beta of the <a href="https://spot.suffolklitlab.org/">Spot API</a>, a project bringing free AI-powered issue spotting to legal aids and non-profits. The issue spotter isn't perfect, but you can help improve it by playing <a href="https://learnedhands.law.stanford.edu/" target="_blank">Learned Hands</a>. This page is presented for demonstration purposes only. <span style="background:yellow;"><b>The results presented here should <i>NOT</i> be relied on in isolation. Spot is a work in progress</b></span>. To learn more about its coverage, read up on its <a href="https://spot.suffolklitlab.org/performance/">current performance</a>, or take it for a spin below.
           </p>
-          <div>
+          <div style="float:left;">
             <a name="uncertainty"></a>
             <p>
-              <input type="hidden" id='bearer' name='bearer' style="width:300px;" value="8c9364cdd6e949a8afdab7d7722a81e919b060a6778a4d6cabb41510ab146a64">
               <b>Managing Uncertainty:</b>
                 When Spot returns a list of issues, it provides a prediction accompanied by a lower and upper bound. See <a href="https://app.swaggerhub.com/apis-docs/suffolklitlab/spot/" target="_blank">Documentation</a>. The bounds are intended to provide users with information about the uncertainty for a given prediction, allowing them to tailor their results to their use case and tolerance for error. The larger the distance between the lower bound and the prediction, the more likely it is that the prediction is overly optimistic about finding the issue. Conversely, the larger the difference between the prediction and the upper bound, the more likely it is that the prediction is under-estimating the chance that the issue is present. Users are encouraged to consider this when setting the cutoffs for triggering the return of an issue. For example, a user interested in avoiding false negatives may set Spot to return results based on the upper bound being greater than 50%, while one interested in avoiding false positives might choose to base their cutoff on the lower bound. The distance between the lower and upper bounds communicates something about the overall uncertainty around a prediction, with the most certain predictions being those with the smallest distances between the two. <a href="https://spot.suffolklitlab.org/performance/#uncertainty" target="_blank">Learn More</a>.
             </p>
             <p>
               Normally a developer making use of Spot would preset cutoffs for the prediction and its upper and lower bounds, but here you can set them yourself to get a sense for how they work to filter results.
             </p>
-            <div style="float:left;width:200px;margin:15px">
-              Lower Bound Cutoff: <output id="lower_disp">?</output>
-              <input type="range" id='cutoff-lower' name='cutoff-lower' min="0" max="1" value="0.5" step="0.01" onLoad="$('#lower_disp').val(this.value)" oninput="$('#lower_disp').val(this.value)" style="width:200px;">
+            <div style="float:left;width:150px;margin:15px">
+              Lower Bound: <output id="lower_disp">?</output>
+              <input type="range" id='cutoff-lower' name='cutoff-lower' min="0" max="1" value="0.5" step="0.01" onLoad="$('#lower_disp').val(this.value)" oninput="$('#lower_disp').val(this.value)" style="width:150px;">
             </div>
-            <div style="float:left;width:200px;margin:15px">
-              Prediction Cutoff: <output id="pred_disp">?</output>
-              <input type="range" id='cutoff-pred' name='cutoff-pred' min="0" max="1" value="0.5" step="0.01" onLoad="$('#pred_disp').val(this.value)" oninput="$('#pred_disp').val(this.value)" style="width:200px;">
+            <div style="float:left;width:150px;margin:15px">
+              Prediction: <output id="pred_disp">?</output>
+              <input type="range" id='cutoff-pred' name='cutoff-pred' min="0" max="1" value="0.5" step="0.01" onLoad="$('#pred_disp').val(this.value)" oninput="$('#pred_disp').val(this.value)" style="width:150px;">
             </div>
-            <div style="float:left;width:200px;margin:15px">Upper Bound Cutoff: <output id="upper_disp">?</output>
-              <input type="range" id='cutoff-upper' name='cutoff-upper' min="0" max="1" value="0.5" step="0.01" onLoad="$('#upper_disp').val(this.value)" oninput="$('#upper_disp').val(this.value)" style="width:200px;">
+            <div style="float:left;width:150px;margin:15px">Upper Bound: <output id="upper_disp">?</output>
+              <input type="range" id='cutoff-upper' name='cutoff-upper' min="0" max="1" value="0.5" step="0.01" onLoad="$('#upper_disp').val(this.value)" oninput="$('#upper_disp').val(this.value)" style="width:150px;">
             </div>
           </div>
           <p>
             Currently, there are several live implementations of Spot which either focus on issues well covered by Spot or supplement Spot with additional context. You can see them here: <a href="https://courtformsonline.org/" target="_blank">Court Forms Online</a> (MA); <a href="https://masslrf.org/en/triage/info" target="_blank">Massachusetts Legal Resource Finder</a> (MA); <a href="https://ptla.org/find-legal-help" target="_blank">Pine Tree Legal Assistance Triage</a> (ME); and <a href="https://www.reddit.com/r/legaladvice/comments/jxbny2/ai_comes_to_la_ama_and_discussion_about_a_new_ai/" target="_blank">Reddit Eviction help bot</a> (national).
           </p>
           <p>
-            FWIW, the presumed context below is that you are someone looking to solve a potential legal issue in <b>Massachusetts</b>. <i>Remember, live integrations are, and should, supplement Spot's results with additional information, like traditional content search, or focus only on areas of high performance</i>. <a href="javascript:void('');" onClick="$('#text').val(sample[Math.floor(Math.random() * sample.length)]);$('#text').css('background-color', '');Countable.live(area, callback);">Seed reply above with sample text</a>.
+            <i>Remember, live integrations are, and should, supplement Spot's results with additional information, like traditional content search, or focus only on areas of high performance</i>. <a href="#top" onClick="$('#text').val(sample[Math.floor(Math.random() * sample.length)]);$('#text').css('background-color', '');Countable.live(area, callback);$('#explanation').toggle();$('#response').hide();">Seed reply above with sample text</a>.
           <p>
         </div>
       </div>
     </div>
     <div id="output" class="search-output">
-      <div id="loading" style="display:none;width:100%;margin:50px auto;text-align:center;">
+      <div id="loading" style="display:none;width:100%;min-height:100vh;margin:50px auto;text-align:center;padding-top:50px;">
         <img src="images/Ajax-loader.gif" width="35px;" height="35px;"/>
       </div>
-      <div id="response" style="float:left;display:none;width:100%;margin:20px auto;">
+      <div id="response" style="float:left;display:none;width:100%;min-height:100vh;margin:20px auto;">
       </div>
     </div>
   </form>
@@ -120,7 +118,7 @@
         Original GitHub Repo
       </a>
       <a href="https://suffolklitlab.org/spottest/" target="_blank" class="footer__link">
-        Inspired By
+        Inspiration
       </a>
     </div>
   </div>
@@ -142,9 +140,9 @@
     var sample = [
                     "My landlord wants to kick me out of my apartment.",
                     "The heat and water in my apartment aren't working.",
-                    "I want a divorce.",
+                    "I want to divorce my spouse.",
                     "My spouse won't pay child support.",
-                    "My brother was arrested.",
+                    "My brother was arrested last week.",
                     "I bought a widget at the store and now it doesn't work. How do I get my money back?",
                     "My father died and we're not sure what to do with the house."
                  ]
