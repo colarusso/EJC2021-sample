@@ -34,7 +34,7 @@ Now we're going to edit the copy of [js_bin/Spot.js](js_bin/Spot.js) found in yo
 ```
 var man_jur = "LA";
 var appBase = "https://afterpattern.com/marketplaces/ejc-legal-apps?nsmi_codes[]=";
-var appCodes = ["FA-00-00-00-00"];
+var appCodes = ["CO-00-00-00-00","CO-01-00-00-00","FA-00-00-00-00","FA-04-00-00-00","HO-00-00-00-00","HO-02-00-00-00","HO-05-00-00-00","HO-06-00-00-00"];
 var bearer = "8c93ab722ab46104cdd6e94b0d777760a6ab18a4d6cab9a8afd1581e91946a64";
 ```
 
