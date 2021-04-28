@@ -14,8 +14,8 @@ Click on the `Fork` button at the top of this page and follow the instructions.
 
 After you finishing forking (copying) this repo, vist the repo. Instead of `colarusso/EJC2021-sample` you will see `[your username]/EJC2021-sample`. That's how you know you're looking at your own copy. Also, you won't see the `your site is published at...` message.
 
-1. Click on `Settings` in the menue at the top of the page.
-2. Click on `Pages`in the menue on the side of the page.
+1. Click on `Settings` in the menu at the top of the page.
+2. Click on `Pages`in the menu on the side of the page.
 3. Choose `main` from the dropdown under `Source`.
 4. Clikc `Save`.
 
