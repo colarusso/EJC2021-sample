@@ -40,7 +40,7 @@ var bearer = "8c93ab722ab46104cdd6e94b0d777760a6ab18a4d6cab9a8afd1581e91946a64";
 
 1. Paste your Spot token into the `bearer` variablem replacing the existing token and leaving the quotation marks. 
 2. Replace `man_jur` with the abbreivation for your jurisdiction (e.g., TX for Texas).
-3. Replace `appBase` with the URL for your Afterpattern marketplace. Be sure to keep the `?nsmi_codes[]=` paramter. *Also, if you don't have an Afterpattern marketplace, don't worry, you can come back and edit that later.*
+3. Replace `appBase` with the URL for your Afterpattern marketplace. Be sure to keep the `?nsmi_codes[]=` paramter. *Also, if you don't have an Afterpattern marketplace, don't worry, you can come back and edit that later.* Or you can follow these instructions for [setting up a marketplace](afterpattern.md).
 4. Edit the list of [NSMI/LIST codes](https://spot.suffolklitlab.org/performance/#nsmi) found in `appCodes`. These are the codes for which your marketplace has apps. So if you have both Family and Housing apps, you would edit your list to look like this `["FA-00-00-00-00","HO-00-00-00-00"]`. If you have more granular apps, you can include those codes too (e.g., `FA-01-00-00-00`).
 
 
