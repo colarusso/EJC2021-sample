@@ -39,22 +39,32 @@ You're now looking at the "code" of the app. Later, if you're interested, check 
 
 11. Click 'Part 2: Publication status':
 
-![publish app](images/ap-step2-publish.png)
+![publication status](images/ap-step2-publish.png)
 
 12. Click 'Marketplace' (Step 1) and then select your new marketplace from the dropdown (Step 2): 
 
-![publish app](images/ap-publish-to-marketplace.png)
+![click marketplace](images/ap-publish-to-marketplace.png)
 
-13. Hit 'Save'
+13. Hit 'Save'. This establishes how you want to publish your app when you activate it. Activating your app is required to allow others to use it. 
 
-Now for the final step, activating your app. 
+15. Click 'Activate':
 
-14. Click 'Activate':
-
-![publish app](images/ap-app-activate.png)
+![click activate](images/ap-app-activate.png)
 
 15. Select 'public' and 'active':
 
-![publish app](images/ap-activation-settings.png)
+![publication settings](images/ap-activation-settings.png)
 
-You now have an Afterpattern marketplace with an app published inside of it! 🎉
+You now have an Afterpattern marketplace with an app published inside of it! 🎉.
+
+Now we can copy the URL to your Afterpattern marketplace and paste it into your SPOT integration. 
+
+16. Navigate back to 'Your marketplaces' and click 'View' on your marketplace: 
+
+![navigate back to your marketplace](images/ap-view-marketplace.png)
+
+17. Copy the URL from your web browser: 
+
+![copy url](images/ap-copy-url.png)
+
+This is what you will paste into your SPOT implementation. 
