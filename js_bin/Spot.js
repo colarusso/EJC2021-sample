@@ -1,7 +1,6 @@
 var man_jur = "LA";
 var appBase = "https://afterpattern.com/marketplaces/lagniappe-law-lab?nsmi_codes[]=";
 var appCodes = ["FA-00-00-00-00"];
-
 var bearer = "8c9364cdd6e949a8afdab7d7722a81e919b060a6778a4d6cabb41510ab146a64";
 
 window.scrollTo(0,0)
@@ -22,8 +21,7 @@ function keyword(api_output) {
 
   if (!label_vals.find(a =>a.includes("CO")) && (
         api_output["text"].toLowerCase().includes("indigency") |
-        api_output["text"].toLowerCase().includes("indigent") |
-        api_output["text"].toLowerCase().includes("cover sheet")
+        api_output["text"].toLowerCase().includes("indigent") 
       )) {
     api_output["labels"].push({id: "CO-00-00-00-00",name: "Courts and Lawyers",lower: 0,pred: 0.5,upper:1})
   }
