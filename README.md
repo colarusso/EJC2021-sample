@@ -2,7 +2,7 @@
 This repo houses a sample implementation of Spot for folks to fork and play with while atteding the [ABA's 2021 Equal Justice Conference](https://web.cvent.com/event/88833e24-7f13-4193-9d64-e4337310fe01/summary). To create your own copy and customize it for your needs complete the following steps. 
 
 ## Create a GitHub Account and Login
-If you don't already have a GitHub account, you can [create one here](https://guides.github.com/activities/hello-world/). After you have an account, make sure you are logged in and viewing this page.
+If you don't already have a GitHub account, you can [create one here](https://github.com/join?source=header-home). After you have an account, make sure you are logged in and viewing this page.
 
 ## Fork This Repo
 
